@@ -18,8 +18,9 @@ function Header() {
   return (
     <header className="header">
         <div className="logo">
-            <Link to='/'>Task Master</Link>
-            <ul>
+            <Link to='/' className='logo-link'>Task Master</Link>
+        </div>
+        <ul>
                 {user ? (
                     <li>
                         <button className='btn' onClick={onLogout}><FaSignOutAlt /> Logout</button>
@@ -39,7 +40,6 @@ function Header() {
                     </>
                 )}
             </ul>
-        </div>
     </header>
   )
 }

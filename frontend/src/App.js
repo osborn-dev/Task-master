@@ -10,7 +10,7 @@ import MainPage from './pages/MainPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-// import HamburgerMenu from './components/Hamburger';
+// import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -37,7 +37,6 @@ function App() {
                 {darkMode ? 'Light Mode' : 'Dark Mode'}
               </DarkModeSwitch>
             </div>
-            {/* <HamburgerMenu /> */}
             <Header />
             <Routes>
               <Route path="/mainpage" element={<MainPage />} />

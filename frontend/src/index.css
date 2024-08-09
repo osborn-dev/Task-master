@@ -4,12 +4,14 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f4f4f9;
-  /* margin: 100px; */
-  padding: 10px;
+  display: flex; /* Use flexbox to center content */
   justify-content: center;
   align-items: center;
+  padding: 10px;
   height: 100vh;
+  margin: 0; /* Remove default margin */
 }
+
 
 
 a {
@@ -39,7 +41,7 @@ h3 {
 .home {
   font-family: Arial, sans-serif;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto; /* Center the container horizontally */
   padding: 20px;
   background-color: #f7f7f7;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -89,10 +91,6 @@ h2 {
   max-height: 400px;
   overflow-y: auto;
   padding-right: 10px;
-}
-
-.center {
-  text-align: center;
 }
 
 .task {
@@ -211,6 +209,11 @@ body.dark-mode .task .icon:hover {
   color: #d9534f;
 }
 
+body.dark-mode .logo-link {
+  color: #ffffff;
+}
+
+
 /* Theme Toggle Button */
 .theme-toggle {
   position: fixed;
@@ -268,6 +271,8 @@ body.dark-mode .task .icon:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0; /* Ensure there is no default margin */
+  padding: 0; /* Ensure there is no default padding */
 }
 
 .header ul li {
@@ -277,6 +282,7 @@ body.dark-mode .task .icon:hover {
 .header ul li a {
   display: flex;
   align-items: center;
+  color: inherit; /* Ensure links inherit text color */
 }
 
 .header ul li a:hover {
@@ -286,6 +292,7 @@ body.dark-mode .task .icon:hover {
 .header ul li a svg {
   margin-right: 5px;
 }
+
 
 .heading {
   font-size: 2rem;
@@ -316,12 +323,7 @@ body.dark-mode .task .icon:hover {
   border-radius: 5px;
   margin-bottom: 10px;
   font-family: inherit;
-}
-
-.form-group label {
-  text-align: left;
-  display: block;
-  margin: 0 0 5px 3px;
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
 }
 
 .btn {
@@ -334,14 +336,19 @@ body.dark-mode .task .icon:hover {
   font-weight: 700;
   cursor: pointer;
   text-align: center;
-  appearance: button;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  appearance: button;
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
 }
 
 .btn svg {
   margin-right: 8px;
+}
+
+.btn:hover {
+  transform: scale(0.98);
 }
 
 .btn-reverse {

@@ -1,0 +1,20 @@
+// useEffect(() => {
+//     const fetchTodos = async () => {
+//       const token = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).token : null;
+//       if (token) {
+//         try {
+        //   const result = await axios.get('http://localhost:3002/api/todos', {
+        //     headers: {
+        //       Authorization: `Bearer ${token}`
+        //     }
+        //   });
+//           setTasks(result.data);
+//           setLoading(false);
+//         } catch (err) {
+//           console.error(err);
+//           setLoading(false);
+//         }
+//       }
+//     };
+//     fetchTodos();
+//   }, []);
