@@ -7,42 +7,50 @@ const jwt = require('jsonwebtoken')
 // @route /api/users
 // @access public
 const registerUser = asyncHandler(async (req, res) => {
-    const { name, email, password } = (req.body)
-
+    const { name, email, password } = req.body;
+  
     if (!name || !email || !password) {
-        res.status(400)
-        throw new Error('Please include all fields')
+      res.status(400);
+      throw new Error('Please include all fields');
     }
-
-    // check if user already exists
-    const userExists = await User.findOne({email})
+  
+    // Check if user already exists
+    const userExists = await User.findOne({ email });
     if (userExists) {
-        res.status(400)
-        throw new Error('User already exists')
+      res.status(400);
+      throw new Error('User already exists');
     }
+  
     // Hash password
-    const salt = await bcrypt.genSalt(10)
-    const hashedPassword = await bcrypt.hash(password, salt)
-
-    // Create user
-    const user = await User.create({
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+  
+    // Attempt creating user
+    try {
+      const user = await User.create({
         name,
         email,
-        password: hashedPassword
-    })
-
-    if (user) {
+        password: hashedPassword,
+      });
+  
+      console.log('Created user:', user); // Log the created user object
+  
+      if (user) {
         res.status(201).json({
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-            token: generateToken(user._id)
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          token: generateToken(user._id),
         });
-    } else {
-        res.status(400)
-        throw new Error('Invalid user data')
+      } else {
+        res.status(400);
+        throw new Error('Invalid user data');
+      }
+    } catch (error) {
+      console.error('Error creating user:', error); // Log any errors during user creation
+      res.status(500).json({ error: 'Failed to create user' });
     }
-})
+  });
 
 // logs in an existing user
 // @route /api/users/login
@@ -77,10 +85,11 @@ const getMe = asyncHandler(async (req, res) => {
     // userId is gotten from the req.user from the middlware
     res.status(200).json(user)
 })
+console.log('JWT_SECRET:', process.env.JWT_SECRET);
 // JWT token
 const generateToken = (id) => {
     return jwt.sign({id}, process.env.JWT_SECRET, {
-        expiresIn: '30d'
+        expiresIn: '7d'
     })
 }
 

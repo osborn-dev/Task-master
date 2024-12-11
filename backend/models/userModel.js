@@ -15,6 +15,11 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please add a password'],
     },
+    Todo: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: false,
+      ref: 'Todo'
+  },
     isAdmin: {
       type: Boolean,
       required: true,

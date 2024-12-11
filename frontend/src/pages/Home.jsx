@@ -12,7 +12,6 @@ function Home() {
       <Link to='/mainpage' className="btn btn-reverse btn-block">
         <FaRegCalendarAlt /> Handle a task
       </Link>
-      
     </section>
     </>
   )

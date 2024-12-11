@@ -1,18 +1,18 @@
 const express = require('express')
-const mongoose = require('mongoose')
+require("dotenv").config();
 const cors = require('cors')
+const colors = require('colors')
 const {errorHandler} = require('./middleware/errorMiddleware')
+const connectDB = require('./config/db')
 
+connectDB()
 const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-mongoose.connect('mongodb+srv://chijiokerayeke:mycluster10@chijscluster.ra0gyf5.mongodb.net/task')
-
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/todos', require('./routes/todoRoutes'))
-
 
 
 // error handler

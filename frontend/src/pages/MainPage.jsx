@@ -14,8 +14,7 @@ function MainPage() {
   const [currentTask, setCurrentTask] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Get the token from local storage
-  // const token = localStorage.getItem('token');
+  
 
   // useEffect hook to fetch tasks when the component mounts
   useEffect(() => {

@@ -11,14 +11,14 @@ function Header() {
     const onLogout = () => {
         dispatch(logout())
         dispatch(reset())
-        navigate('/login')
+        navigate('/')
     }
 
 
   return (
     <header className="header">
         <div className="logo">
-            <Link to='/' className='logo-link'>Task Master</Link>
+            <Link to='/' className='logo-link'>Chronos</Link>
         </div>
         <ul>
                 {user ? (
@@ -37,7 +37,7 @@ function Header() {
                     <FaUser /> Register
                     </Link>
                 </li>
-                    </>
+                </>
                 )}
             </ul>
     </header>

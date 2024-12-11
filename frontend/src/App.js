@@ -30,7 +30,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className="containe">
+        <div className="container">
           <div className={darkMode ? 'dark-mode' : ''}>
             <div className="theme-toggle">
               <DarkModeSwitch color="grey" onClick={toggleDarkMode}>
@@ -39,10 +39,10 @@ function App() {
             </div>
             <Header />
             <Routes>
-              <Route path="/mainpage" element={<MainPage />} />
-              <Route path="/login" element={<Login />} />
               <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/mainpage" element={<MainPage />} />
             </Routes>
             <ToastContainer />
           </div>

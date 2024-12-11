@@ -68,7 +68,7 @@ function Login() {
         <h1>
           <FaSignInAlt /> Login
         </h1>
-        <p>Login into your account</p>
+        <p>Log in to get productive</p>
       </section>
       <section className="form">
         <form onSubmit={onSubmit}>
